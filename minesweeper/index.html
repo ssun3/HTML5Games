@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app='Minesweeper'>
+  <head>
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="minesweeper.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script>
+      angular.module('Minesweeper', [])
+    </script>
+    <script src="MinesweeperCtrl.js"></script>
+    <script src="rightClick.js"></script>
+  </head>
+    <body ng-controller="MinesweeperCtrl">
+    <h3> Controls </h3>
+    <ul>
+        <li>Click to uncover spot. </li>
+        <li>Right click to place a flag. </li>
+        <li>Shift key + click to uncover surrounding spots(trigger cascade)</li>
+    </ul>
+    <h3 ng-if="winMessage">You won!</h3>
+    <h3 ng-if="winMessage">You won!</h3>
+    <h3 ng-if="loseMessage">You Lost!</h3>
+    <table border ="1" class="minefield">
+      <tr ng-repeat="row in minefield.rows">
+        <td ng-repeat="spot in row.spots" right-click="spot.flag = !spot.flag" ng-click="handleClick($event, spot)">
+        <img ng-if="spot.isCovered && !spot.flag" src="img/covered.png">
+        <img ng-if="!spot.isCovered && spot.content == 0" src="img/empty.png">
+        <img ng-if="!spot.isCovered && spot.content == 'mine'" src="img/mine.jpg">
+        <img ng-if="!spot.isCovered && spot.content == 1" src="img/Minesweeper_1.png">
+        <img ng-if="!spot.isCovered && spot.content == 2" src="img/Minesweeper_2.png">
+        <img ng-if="!spot.isCovered && spot.content == 3" src="img/Minesweeper_3.png">
+        <img ng-if="!spot.isCovered && spot.content == 4" src="img/Minesweeper_4.png">
+        <img ng-if="!spot.isCovered && spot.content == 5" src="img/Minesweeper_5.png">
+        <img ng-if="!spot.isCovered && spot.content == 6" src="img/Minesweeper_6.png">
+        <img ng-if="!spot.isCovered && spot.content == 7" src="img/Minesweeper_7.png">
+        <img ng-if="!spot.isCovered && spot.content == 8" src="img/Minesweeper_8.png">
+        <img ng-if="spot.isCovered && spot.flag" src="img/Minesweeper_flag.png">
+
+        </td>
+      </tr>
+    </table>
+
+    </body>
+</html>

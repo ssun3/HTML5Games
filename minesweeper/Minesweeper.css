@@ -1,0 +1,28 @@
+body{
+  position: absolute;
+  top: 50%;
+  left: 50%; 
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}
+
+
+.minefield {
+  line-height:0;
+  border-spacing:0;
+}
+
+.minefield td {
+  padding: 0;
+}
+
+img {
+  max-width: 64px;
+  max-height: 64px;
+}
+
+h3{
+  text-align: center;
+}
